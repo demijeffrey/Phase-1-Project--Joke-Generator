@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(126, 235, 126);
+  }
+
+  .nav-wrapper {
+    background-color: rgb(231, 218, 36);
+  }
+
+ul {
+	list-style: none;
+}
+
+.nav-mobile {
+    float: left;
+}
