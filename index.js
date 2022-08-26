@@ -43,7 +43,8 @@ function homepage (data) {
     const ul = document.createElement('ul')
     for(let i=1; i<data.length; i++) {
         const li = document.createElement('li')
-        li.style = 'display: inline; padding: 10px; margin: 50px'
+        li.className = 'white-text'
+        li.style = 'display: inline; padding: 10px; margin: 50px; background-color: #e65100'
         li.addEventListener('click', () => {
             fetch(`https://v2.jokeapi.dev/joke/${data[i]}`)
                 .then(res => res.json())
@@ -51,17 +52,20 @@ function homepage (data) {
                     console.log(joke)
                     resetCategoryJoke();
                     const p = document.createElement('p')
+                    p.className = 'center-align'
+                    p.style = 'margin-top: 50px; text-color: red darken-4'
                     p.innerText = joke.joke || joke.setup
-                    const ul = document.createElement('ul')
-                    ul.innerText = joke.delivery || ' '
-                    p.appendChild(ul)
+                    const div = document.createElement('div')
+                    div.className = 'center-align'
+                    div.style = 'padding: 100px'
+                    div.innerText = joke.delivery || ' '
+                    p.appendChild(div)
                     categoryJoke().appendChild(p)
                 })
         })
         li.innerText = data[i]
         ul.appendChild(li)
     }
-
     main().appendChild(h2)
     main().appendChild(h5)
     main().appendChild(ul)
