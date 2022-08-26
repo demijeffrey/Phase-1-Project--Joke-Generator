@@ -3,6 +3,7 @@ const main = () => document.getElementById('main')
 const createLink = () => document.getElementById('create-link')
 const homeLink = () => document.getElementById('home-link')
 const randomLink = () => document.getElementById('random-link')
+const categoryJoke = () => document.getElementById('category-joke')
 
 
 //Event Listeners
@@ -24,6 +25,10 @@ function resetMain () {
     main().innerText = ''
 }
 
+function resetCategoryJoke () {
+    categoryJoke().innerText = ''
+}
+
 function homepage (data) {
     resetMain()
     const h2 = document.createElement('h2')
@@ -39,7 +44,20 @@ function homepage (data) {
     for(let i=1; i<data.length; i++) {
         const li = document.createElement('li')
         li.style = 'display: inline; padding: 10px; margin: 50px'
-        li.addEventListener('click', )
+        li.addEventListener('click', () => {
+            fetch(`https://v2.jokeapi.dev/joke/${data[i]}`)
+                .then(res => res.json())
+                .then(joke => {
+                    console.log(joke)
+                    resetCategoryJoke();
+                    const p = document.createElement('p')
+                    p.innerText = joke.joke || joke.setup
+                    const ul = document.createElement('ul')
+                    ul.innerText = joke.delivery || ' '
+                    p.appendChild(ul)
+                    categoryJoke().appendChild(p)
+                })
+        })
         li.innerText = data[i]
         ul.appendChild(li)
     }
@@ -94,10 +112,12 @@ function fetchJokeCategories () {
         })
 }
 
-// function renderJokeByCategory () {
-//     const categoryJoke = document.getElementById('category-joke')
-//     fetch(`https://v2.jokeapi.dev/joke/${}`)
-// }
+function renderJokeByCategory () {
+    const categoryJoke = document.getElementById('category-joke')
+    fetch(`https://v2.jokeapi.dev/joke/${data[i]}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+}
 
 
 
