@@ -80,7 +80,8 @@ function createJokePage () {
 }
 
 function randomJokePage (joke, answer) {
-    resetMain()
+    resetMain();
+    resetCategoryJoke();
     const h3 = document.createElement('h3')
     h3.innerText = 'Random Joke'
     h3.className = 'center-align'
@@ -102,7 +103,7 @@ function fetchRandomJoke () {
         .then(res => res.json())
         .then(joke => {
             console.log(joke)
-            randomJokePage(joke.setup, joke.delivery)
+            randomJokePage(joke.setup || joke.joke, joke.delivery || ' ')
     })
 }
 
