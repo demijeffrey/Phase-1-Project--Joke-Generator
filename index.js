@@ -11,7 +11,7 @@ function createJokeClickEvent () {
 }
 
 function homeLinkClickEvent () {
-    homeLink().addEventListener('click', homepage)
+    homeLink().addEventListener('click', fetchJokeCategories)
 }
 
 function randomJokeClickEvent () {
@@ -24,20 +24,35 @@ function resetMain () {
     main().innerText = ''
 }
 
-function homepage () {
+function homepage (data) {
     resetMain()
     const h2 = document.createElement('h2')
+    h2.className = 'center-align'
     h2.innerText = 'Welcome to Joke Generator'
+    const h5 = document.createElement('h5')
+    h5.className = 'center-align'
+    h5.style = 'margin-top: 50px; margin-bottom: 50px'
+    h5.innerText = 'Jokes By Category'
+
+    console.log(data)
     const ul = document.createElement('ul')
-    ul.innerText = 'Categories'
+    for(let i=1; i<data.length; i++) {
+        const li = document.createElement('li')
+        li.style = 'display: inline; padding: 10px; margin: 50px'
+        li.addEventListener('click', )
+        li.innerText = data[i]
+        ul.appendChild(li)
+    }
 
     main().appendChild(h2)
+    main().appendChild(h5)
     main().appendChild(ul)
 }
 
 function createJokePage () {
     resetMain()
     const h3 = document.createElement('h3')
+    h3.className = 'center-align'
     h3.innerText = 'Submit A Joke'
     main().appendChild(h3)
 }
@@ -73,15 +88,23 @@ function fetchJokeCategories () {
     fetch('https://v2.jokeapi.dev/categories')
         .then(res => res.json())
         .then(data => {
-            data.categories.forEach(item => console.log(item))
+            console.log(data.categories)
+            // data.categories.forEach(item => console.log(item))
+            homepage(data.categories)
         })
 }
+
+// function renderJokeByCategory () {
+//     const categoryJoke = document.getElementById('category-joke')
+//     fetch(`https://v2.jokeapi.dev/joke/${}`)
+// }
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    homepage();
+    // homepage();
     createJokeClickEvent();
     homeLinkClickEvent();
     randomJokeClickEvent();
+    fetchJokeCategories();
 })
