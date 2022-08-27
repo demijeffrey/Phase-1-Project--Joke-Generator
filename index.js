@@ -98,17 +98,18 @@ function homepage (data) {
 }
 
 function createJokePage () {
-    resetMain()
-    resetCategoryJoke()
+    resetMain();
+    resetCategoryJoke();
+    showForm();
     const h3 = document.createElement('h3')
     h3.className = 'center-align'
     h3.innerText = 'Submit A Joke'
     main().appendChild(h3)
+    
+    document.getElementById('submit-btn').addEventListener('submit', () => myJokesPage())
 
-    const form = document.getElementById('form')
-    form.reset()
-
-    showForm()
+    // const form = document.getElementById('form')
+    // form.reset()
 }
 
 function randomJokePage (joke, answer) {

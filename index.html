@@ -31,10 +31,11 @@
       <div id="category-joke" class="container"></div>
 
       <div id="submit-form" style="display: none">
-        <form action="http://localhost:3000/myjokes" method="POST" class="container" id="form">
-            <input type="text" name="joke" placeholder="joke" />
-            <input type="text" name="answer" placeholder="answer" />
-            <input type="submit" value="Save to My Jokes" />
+        <iframe name="dummyframe" id="dummyframe" style="display: none"></iframe>
+        <form action="http://localhost:3000/myjokes" method="POST" class="container" id="form" target="dummyframe">
+            <input type="text" name="joke" placeholder="joke" class="white" >
+            <input type="text" name="answer" placeholder="answer" class="white" />
+            <input type="submit" value="Save to My Jokes" id="submit-btn" />
           </form>  
       </div>
     
