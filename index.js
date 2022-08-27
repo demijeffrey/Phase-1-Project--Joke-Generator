@@ -58,7 +58,7 @@ function homepage (data) {
     resetMain()
     hideForm()
     const h2 = document.createElement('h2')
-    h2.className = 'center-align'
+    h2.className = 'center-align background-color: yellow darken-3'
     h2.innerText = 'Welcome to Joke Generator'
     const h5 = document.createElement('h5')
     h5.className = 'center-align'
@@ -102,7 +102,7 @@ function createJokePage () {
     resetCategoryJoke();
     showForm();
     const h3 = document.createElement('h3')
-    h3.className = 'center-align'
+    h3.className = 'center-align background-color: yellow darken-3'
     h3.style = 'margin-bottom: 100px'
     h3.innerText = 'Submit A Joke'
     main().appendChild(h3)
@@ -119,7 +119,7 @@ function randomJokePage (joke, answer) {
     hideForm();
     const h3 = document.createElement('h3')
     h3.innerText = 'Random Joke'
-    h3.className = 'center-align'
+    h3.className = 'center-align background-color: yellow darken-3'
     const h5 = document.createElement('h5')
     h5.className = 'center-align'
     h5.innerText = joke
@@ -138,7 +138,7 @@ function myJokesPage (jokes) {
     resetCategoryJoke()
     hideForm()
     const h3 = document.createElement('h3')
-    h3.className = 'center-align'
+    h3.className = 'center-align background-color: yellow darken-3'
     h3.style = 'margin-bottom: 100px'
     h3.innerText = "My Jokes"
     main().appendChild(h3)
