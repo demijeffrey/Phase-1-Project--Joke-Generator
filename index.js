@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // homepage();
     createJokeClickEvent();
     homeLinkClickEvent();
     randomJokeClickEvent();
@@ -46,6 +45,14 @@ function resetCategoryJoke () {
     categoryJoke().innerText = ''
 }
 
+function showForm () {
+    submitForm().style = 'display: block'
+}
+
+function hideForm () {
+    submitForm().style = 'display: none'
+}
+
 
 function homepage (data) {
     resetMain()
@@ -61,10 +68,10 @@ function homepage (data) {
     console.log(data)
     const ul = document.createElement('ul')
     for(let i=1; i<data.length; i++) {
-        const li = document.createElement('li')
-        li.className = 'white-text'
-        li.style = 'display: inline; padding: 10px; margin: 50px; background-color: #e65100'
-        li.addEventListener('click', () => {
+        const btn = document.createElement('button')
+        btn.className = 'white-text'
+        btn.style = 'display: inline; padding: 10px; margin: 40px; background-color: #e65100'
+        btn.addEventListener('click', () => {
             fetch(`https://v2.jokeapi.dev/joke/${data[i]}`)
                 .then(res => res.json())
                 .then(joke => {
@@ -82,8 +89,8 @@ function homepage (data) {
                     categoryJoke().appendChild(p)
                 })
         })
-        li.innerText = data[i]
-        ul.appendChild(li)
+        btn.innerText = data[i]
+        ul.appendChild(btn)
     }
     main().appendChild(h2)
     main().appendChild(h5)
@@ -174,17 +181,4 @@ function fetchMyJokes () {
         .then(jokes => {
             myJokesPage(jokes)
         })
-}
-
-// function renderJokeByCategory () {
-//     const categoryJoke = document.getElementById('category-joke')
-//     fetch(`https://v2.jokeapi.dev/joke/${data[i]}`)
-//         .then(res => res.json())
-//         .then(data => console.log(data))
-// }
-function showForm () {
-    submitForm().style = 'display: block'
-}
-function hideForm () {
-    submitForm().style = 'display: none'
 }
