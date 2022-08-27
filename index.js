@@ -40,13 +40,13 @@ function resetCategoryJoke () {
     categoryJoke().innerText = ''
 }
 
-function resetFormPage () {
-    submitForm().innerText = ''
-}
+// function resetFormPage () {
+//     submitForm().innerText = ''
+// }
 
 function homepage (data) {
     resetMain()
-    resetFormPage()
+    hideForm()
     const h2 = document.createElement('h2')
     h2.className = 'center-align'
     h2.innerText = 'Welcome to Joke Generator'
@@ -102,7 +102,7 @@ function createJokePage () {
 function randomJokePage (joke, answer) {
     resetMain();
     resetCategoryJoke();
-    resetFormPage()
+    hideForm();
     const h3 = document.createElement('h3')
     h3.innerText = 'Random Joke'
     h3.className = 'center-align'
@@ -148,4 +148,7 @@ function fetchJokeCategories () {
 // }
 function showForm () {
     submitForm().style = 'display: block'
+}
+function hideForm () {
+    submitForm().style = 'display: none'
 }
