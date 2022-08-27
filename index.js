@@ -89,12 +89,13 @@ function homepage (data) {
                     h6.innerText = joke.joke || joke.setup
                     const p = document.createElement('p')
                     p.className = 'center-align white-text'
-                    p.style = 'padding: 100px'
+                    p.style = 'padding: 100px; margin-bottom: 10px'
                     p.innerText = joke.delivery || ' '
                     h6.appendChild(p)
 
                     const favBtn = document.createElement('button')
-                    favBtn.className = 'waves-effect waves-light btn-small center-align red lighten-1'
+                    favBtn.className = 'waves-effect waves-light btn-small red lighten-1'
+                    favBtn.style = 'margin-left: 400px'
                     favBtn.innerText = 'Add to Favorites'
                     favBtn.addEventListener('click', () => {
                             fetch('http://localhost:3000/favorites', {
@@ -156,6 +157,7 @@ function randomJokePage (joke, answer) {
     
     const btn = document.createElement('button')
     btn.className = 'waves-effect waves-light btn-small center-align red lighten-1'
+    btn.style = 'margin-left: 400px; margin-top: 100px'
     btn.innerText = 'Add to Favorites'
     btn.addEventListener('click', () => {
             fetch('http://localhost:3000/favorites', {
