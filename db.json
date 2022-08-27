@@ -24,13 +24,12 @@
   "favorites": [
     {
       "id": 0,
-      "joke": "",
-      "setup": "",
-      "delivery": ""
+      "joke": "What's the difference between a hippo and a zippo?",
+      "answer": "One is really heavy and the other is a little lighter."
     },
     {
-      "joke": "Everyone says that Hitler really loved animals.",
-      "answer": "Then why did he kill 6 million of them?",
+      "joke": "Whats the Grinchs least favorite band?",
+      "answer": "The Who.",
       "id": 1
     }
   ]

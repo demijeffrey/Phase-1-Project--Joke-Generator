@@ -38,7 +38,7 @@ function myJokesClickEvent () {
 }
 
 function favoritesClickEvent () {
-    favoritesLink().addEventListener('click', favoritesPage)
+    favoritesLink().addEventListener('click', fetchFavoriteJokes)
 }
 
 
@@ -114,9 +114,6 @@ function createJokePage () {
     main().appendChild(h3)
     
     document.getElementById('form').addEventListener('submit', () => fetchMyJokes())
-
-    // const form = document.getElementById('form')
-    // form.reset()
 }
 
 function randomJokePage (joke, answer) {
@@ -133,9 +130,27 @@ function randomJokePage (joke, answer) {
     const p = document.createElement('p')
     p.className = 'center-align white-text'
     p.innerText = answer
+    
     const btn = document.createElement('button')
+    btn.className = 'waves-effect waves-light btn-small center-align red lighten-1'
     btn.innerText = 'Add to Favorites'
-    btn.addEventListener('click', favoriteJoke(joke, answer))
+    btn.addEventListener('click', () => {
+            fetch('http://localhost:3000/favorites', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    joke: joke,
+                    answer: answer
+                })
+            })
+            .then(res => res.json())
+            .then(joke => {
+                console.log(joke)
+            })
+    })
 
     main().appendChild(h3)
     main().appendChild(h5)
@@ -166,7 +181,7 @@ function myJokesPage (jokes) {
     })
 }
 
-function favoritesPage () {
+function favoritesPage (jokes) {
     resetMain();
     resetCategoryJoke();
     hideForm();
@@ -174,8 +189,19 @@ function favoritesPage () {
     h3.className = 'center-align background-color: orange darken-2'
     h3.style = 'margin-bottom: 100px'
     h3.innerText = "Favorite Jokes"
-
     main().appendChild(h3)
+
+    jokes.forEach(joke => {
+        const li = document.createElement('li')
+        li.innerText = joke.joke
+        const p = document.createElement('p')
+        p.style = 'margin-left: 75px'
+        p.className = 'white-text'
+        p.innerText = joke.answer
+        li.appendChild(p)
+
+        main().appendChild(li)
+    })
 }
 
 
@@ -207,19 +233,29 @@ function fetchMyJokes () {
         })
 }
 
-
-function favoriteJoke (joke, answer) {
-    fetch('http://localhost:3000/favorites', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            joke: joke || joke.setup,
-            answer: answer
+function fetchFavoriteJokes () {
+    fetch('http://localhost:3000/favorites')
+        .then(res => res.json())
+        .then(jokes => {
+            favoritesPage(jokes)
         })
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
 }
+
+
+// function favoriteJoke (joke, answer) {
+//     fetch('http://localhost:3000/favorites', {
+//         method: 'POST',
+//         headers: {
+//             'Content-type': 'application/json',
+//             'Accept': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             joke: joke,
+//             answer: answer
+//         })
+//     })
+//     .then(res => res.json())
+//     .then(joke => {
+//         console.log(joke)
+//     })
+// }
