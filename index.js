@@ -146,7 +146,7 @@ function randomJokePage (joke, answer) {
     resetCategoryJoke();
     hideForm();
     const h3 = document.createElement('h3')
-    h3.innerText = 'Random Joke'
+    h3.innerText = 'Any Random Joke'
     h3.className = 'center-align background-color: orange darken-2'
     const h5 = document.createElement('h5')
     h5.className = 'center-align'
@@ -192,7 +192,7 @@ function myJokesPage (jokes) {
     const h3 = document.createElement('h3')
     h3.className = 'center-align background-color: orange darken-2'
     h3.style = 'margin-bottom: 100px'
-    h3.innerText = "My Jokes"
+    h3.innerText = "Created Jokes"
     main().appendChild(h3)
 
     jokes.forEach(joke => {
