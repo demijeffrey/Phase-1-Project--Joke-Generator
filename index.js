@@ -65,11 +65,11 @@ function homepage (data) {
     hideForm()
     const h2 = document.createElement('h2')
     h2.className = 'center-align background-color: orange darken-2'
-    h2.innerText = 'Welcome to Joke Generator'
+    h2.innerText = 'Welcome to \'Pun\'ny Joke Randomizer'
     const h5 = document.createElement('h5')
     h5.className = 'center-align'
     h5.style = 'margin-top: 50px; margin-bottom: 50px'
-    h5.innerText = 'Jokes By Category'
+    h5.innerText = 'Random Joke By Category'
 
     console.log(data)
     const ul = document.createElement('ul')
