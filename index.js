@@ -98,7 +98,9 @@ function createJokePage () {
     h3.innerText = 'Submit A Joke'
     main().appendChild(h3)
 
-    const form = document.createElement('form')
+    const form = document.getElementById('form')
+    form.reset()
+
     showForm()
 }
 
@@ -128,6 +130,7 @@ function myJokesPage (jokes) {
     hideForm()
     const h3 = document.createElement('h3')
     h3.className = 'center-align'
+    h3.style = 'margin-bottom: 100px'
     h3.innerText = "My Jokes"
     main().appendChild(h3)
 

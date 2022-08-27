@@ -9,6 +9,11 @@
       "joke": "What did the fish say when he swan into a wall?",
       "answer": "Dam.",
       "id": 1
+    },
+    {
+      "joke": "What's green and has wheels?",
+      "answer": "Grass. I lied about the wheels.",
+      "id": 2
     }
   ]
 }
