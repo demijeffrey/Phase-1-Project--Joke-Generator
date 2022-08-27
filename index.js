@@ -126,6 +126,11 @@ function myJokesPage (jokes) {
     resetMain()
     resetCategoryJoke()
     hideForm()
+    const h3 = document.createElement('h3')
+    h3.className = 'center-align'
+    h3.innerText = "My Jokes"
+    main().appendChild(h3)
+
     jokes.forEach(joke => {
         const ul = document.createElement('ul')
         ul.innerText = joke.joke
