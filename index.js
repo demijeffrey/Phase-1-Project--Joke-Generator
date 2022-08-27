@@ -132,14 +132,15 @@ function myJokesPage (jokes) {
     main().appendChild(h3)
 
     jokes.forEach(joke => {
-        const ul = document.createElement('ul')
-        ul.innerText = joke.joke
         const li = document.createElement('li')
-        li.className = 'white-text'
-        li.innerText = joke.answer
-        ul.appendChild(li)
+        li.innerText = joke.joke
+        const p = document.createElement('p')
+        p.style = 'margin-left: 75px'
+        p.className = 'white-text'
+        p.innerText = joke.answer
+        li.appendChild(p)
 
-        main().appendChild(ul)
+        main().appendChild(li)
     })
 }
 
