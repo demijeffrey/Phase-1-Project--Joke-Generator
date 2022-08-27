@@ -135,7 +135,7 @@ function createJokePage () {
     const h3 = document.createElement('h3')
     h3.className = 'center-align background-color: orange darken-2'
     h3.style = 'margin-bottom: 100px'
-    h3.innerText = 'Submit A Joke'
+    h3.innerText = 'Create A Joke'
     main().appendChild(h3)
     
     document.getElementById('form').addEventListener('submit', () => fetchMyJokes())
