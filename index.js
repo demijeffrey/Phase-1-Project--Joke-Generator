@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     homeLinkClickEvent();
     randomJokeClickEvent();
     fetchJokeCategories();
+    myJokesClickEvent();
 })
 
 
@@ -15,6 +16,7 @@ const homeLink = () => document.getElementById('home-link')
 const randomLink = () => document.getElementById('random-link')
 const categoryJoke = () => document.getElementById('category-joke')
 const submitForm = () => document.getElementById('submit-form')
+const myJokesLink = () => document.getElementById('my-jokes-link')
 
 
 //Event Listeners
@@ -30,6 +32,10 @@ function randomJokeClickEvent () {
     randomLink().addEventListener('click', fetchRandomJoke)
 }
 
+function myJokesClickEvent () {
+    myJokesLink().addEventListener('click', fetchMyJokes)
+}
+
 
 //Event Handlers
 function resetMain () {
@@ -40,9 +46,6 @@ function resetCategoryJoke () {
     categoryJoke().innerText = ''
 }
 
-// function resetFormPage () {
-//     submitForm().innerText = ''
-// }
 
 function homepage (data) {
     resetMain()
@@ -119,6 +122,22 @@ function randomJokePage (joke, answer) {
     main().appendChild(p)
 }
 
+function myJokesPage (jokes) {
+    resetMain()
+    resetCategoryJoke()
+    hideForm()
+    jokes.forEach(joke => {
+        const ul = document.createElement('ul')
+        ul.innerText = joke.joke
+        const li = document.createElement('li')
+        li.className = 'white-text'
+        li.innerText = joke.answer
+        ul.appendChild(li)
+
+        main().appendChild(ul)
+    })
+}
+
 
 //Fetch
 function fetchRandomJoke () {
@@ -137,6 +156,14 @@ function fetchJokeCategories () {
             console.log(data.categories)
             // data.categories.forEach(item => console.log(item))
             homepage(data.categories)
+        })
+}
+
+function fetchMyJokes () {
+    fetch('http://localhost:3000/myjokes')
+        .then(res => res.json())
+        .then(jokes => {
+            myJokesPage(jokes)
         })
 }
 
