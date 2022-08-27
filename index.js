@@ -135,7 +135,7 @@ function randomJokePage (joke, answer) {
     p.innerText = answer
     const btn = document.createElement('button')
     btn.innerText = 'Add to Favorites'
-    // btn.
+    btn.addEventListener('click', favoriteJoke(joke, answer))
 
     main().appendChild(h3)
     main().appendChild(h5)
@@ -205,4 +205,21 @@ function fetchMyJokes () {
         .then(jokes => {
             myJokesPage(jokes)
         })
+}
+
+
+function favoriteJoke (joke, answer) {
+    fetch('http://localhost:3000/favorites', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            joke: joke || joke.setup,
+            answer: answer
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
 }

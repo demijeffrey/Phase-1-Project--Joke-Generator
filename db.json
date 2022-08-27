@@ -21,13 +21,17 @@
       "id": 3
     }
   ],
-
   "favorites": [
     {
-        "id": 0,
-        "joke": "",
-        "setup": "",
-        "delivery": ""
+      "id": 0,
+      "joke": "",
+      "setup": "",
+      "delivery": ""
+    },
+    {
+      "joke": "Everyone says that Hitler really loved animals.",
+      "answer": "Then why did he kill 6 million of them?",
+      "id": 1
     }
-]
+  ]
 }
