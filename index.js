@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     randomJokeClickEvent();
     fetchJokeCategories();
     myJokesClickEvent();
+    favoritesClickEvent();
 })
 
 
@@ -16,6 +17,7 @@ const randomLink = () => document.getElementById('random-link')
 const categoryJoke = () => document.getElementById('category-joke')
 const submitForm = () => document.getElementById('submit-form')
 const myJokesLink = () => document.getElementById('my-jokes-link')
+const favoritesLink = () => document.getElementById('favorite-jokes-link')
 
 
 //Event Listeners
@@ -33,6 +35,10 @@ function randomJokeClickEvent () {
 
 function myJokesClickEvent () {
     myJokesLink().addEventListener('click', fetchMyJokes)
+}
+
+function favoritesClickEvent () {
+    favoritesLink().addEventListener('click', favoritesPage)
 }
 
 
@@ -129,6 +135,7 @@ function randomJokePage (joke, answer) {
     p.innerText = answer
     const btn = document.createElement('button')
     btn.innerText = 'Add to Favorites'
+    // btn.
 
     main().appendChild(h3)
     main().appendChild(h5)
@@ -157,6 +164,18 @@ function myJokesPage (jokes) {
 
         main().appendChild(li)
     })
+}
+
+function favoritesPage () {
+    resetMain();
+    resetCategoryJoke();
+    hideForm();
+    const h3 = document.createElement('h3')
+    h3.className = 'center-align background-color: orange darken-2'
+    h3.style = 'margin-bottom: 100px'
+    h3.innerText = "Favorite Jokes"
+
+    main().appendChild(h3)
 }
 
 

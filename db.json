@@ -20,5 +20,14 @@
       "answer": "One is really heavy and the other is a little lighter.",
       "id": 3
     }
-  ]
+  ],
+
+  "favorites": [
+    {
+        "id": 0,
+        "joke": "",
+        "setup": "",
+        "delivery": ""
+    }
+]
 }
