@@ -1,9 +1,14 @@
 {
-    "myjokes": [
-        {
-            "id": 0,
-            "joke": "What kind of tea is hard to swallow?",
-            "answer": "Reality"
-        }
-    ]
+  "myjokes": [
+    {
+      "id": 0,
+      "joke": "What kind of tea is hard to swallow?",
+      "answer": "Reality"
+    },
+    {
+      "joke": "What did the fish say when he swan into a wall?",
+      "answer": "Dam.",
+      "id": 1
+    }
+  ]
 }
