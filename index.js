@@ -77,16 +77,16 @@ function homepage (data) {
                 .then(joke => {
                     console.log(joke)
                     resetCategoryJoke();
+                    const h6 = document.createElement('h6')
+                    h6.className = 'center-align'
+                    h6.style = 'margin-top: 50px'
+                    h6.innerText = joke.joke || joke.setup
                     const p = document.createElement('p')
-                    p.className = 'center-align'
-                    p.style = 'margin-top: 50px'
-                    p.innerText = joke.joke || joke.setup
-                    const div = document.createElement('div')
-                    div.className = 'center-align'
-                    div.style = 'padding: 100px'
-                    div.innerText = joke.delivery || ' '
-                    p.appendChild(div)
-                    categoryJoke().appendChild(p)
+                    p.className = 'center-align white-text'
+                    p.style = 'padding: 100px'
+                    p.innerText = joke.delivery || ' '
+                    h6.appendChild(p)
+                    categoryJoke().appendChild(h6)
                 })
         })
         btn.innerText = data[i]
@@ -127,10 +127,13 @@ function randomJokePage (joke, answer) {
     const p = document.createElement('p')
     p.className = 'center-align white-text'
     p.innerText = answer
+    const btn = document.createElement('button')
+    btn.innerText = 'Add to Favorites'
 
     main().appendChild(h3)
     main().appendChild(h5)
     main().appendChild(p)
+    main().appendChild(btn)
 }
 
 function myJokesPage (jokes) {
