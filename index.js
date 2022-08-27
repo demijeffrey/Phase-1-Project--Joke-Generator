@@ -92,7 +92,30 @@ function homepage (data) {
                     p.style = 'padding: 100px'
                     p.innerText = joke.delivery || ' '
                     h6.appendChild(p)
+
+                    const favBtn = document.createElement('button')
+                    favBtn.className = 'waves-effect waves-light btn-small center-align red lighten-1'
+                    favBtn.innerText = 'Add to Favorites'
+                    favBtn.addEventListener('click', () => {
+                            fetch('http://localhost:3000/favorites', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    joke: joke.setup || joke.joke,
+                                    answer: joke.delivery || ' '
+                                })
+                            })
+                            .then(res => res.json())
+                            .then(joke => {
+                                console.log(joke)
+                            })
+                    })
+
                     categoryJoke().appendChild(h6)
+                    categoryJoke().appendChild(favBtn)
                 })
         })
         btn.innerText = data[i]
@@ -193,11 +216,11 @@ function favoritesPage (jokes) {
 
     jokes.forEach(joke => {
         const li = document.createElement('li')
-        li.innerText = joke.joke
+        li.innerText = joke.setup || joke.joke
         const p = document.createElement('p')
         p.style = 'margin-left: 75px'
         p.className = 'white-text'
-        p.innerText = joke.answer
+        p.innerText = joke.answer || joke.delivery
         li.appendChild(p)
 
         main().appendChild(li)
