@@ -1,9 +1,20 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // homepage();
+    createJokeClickEvent();
+    homeLinkClickEvent();
+    randomJokeClickEvent();
+    fetchJokeCategories();
+})
+
+
+
 //Nodes
 const main = () => document.getElementById('main')
 const createLink = () => document.getElementById('create-link')
 const homeLink = () => document.getElementById('home-link')
 const randomLink = () => document.getElementById('random-link')
 const categoryJoke = () => document.getElementById('category-joke')
+const submitForm = () => document.getElementById('submit-form')
 
 
 //Event Listeners
@@ -29,8 +40,13 @@ function resetCategoryJoke () {
     categoryJoke().innerText = ''
 }
 
+function resetFormPage () {
+    submitForm().innerText = ''
+}
+
 function homepage (data) {
     resetMain()
+    resetFormPage()
     const h2 = document.createElement('h2')
     h2.className = 'center-align'
     h2.innerText = 'Welcome to Joke Generator'
@@ -73,15 +89,20 @@ function homepage (data) {
 
 function createJokePage () {
     resetMain()
+    resetCategoryJoke()
     const h3 = document.createElement('h3')
     h3.className = 'center-align'
     h3.innerText = 'Submit A Joke'
     main().appendChild(h3)
+
+    const form = document.createElement('form')
+    showForm()
 }
 
 function randomJokePage (joke, answer) {
     resetMain();
     resetCategoryJoke();
+    resetFormPage()
     const h3 = document.createElement('h3')
     h3.innerText = 'Random Joke'
     h3.className = 'center-align'
@@ -98,6 +119,8 @@ function randomJokePage (joke, answer) {
     main().appendChild(p)
 }
 
+
+//Fetch
 function fetchRandomJoke () {
     fetch('https://v2.jokeapi.dev/joke/Any')
         .then(res => res.json())
@@ -117,19 +140,12 @@ function fetchJokeCategories () {
         })
 }
 
-function renderJokeByCategory () {
-    const categoryJoke = document.getElementById('category-joke')
-    fetch(`https://v2.jokeapi.dev/joke/${data[i]}`)
-        .then(res => res.json())
-        .then(data => console.log(data))
+// function renderJokeByCategory () {
+//     const categoryJoke = document.getElementById('category-joke')
+//     fetch(`https://v2.jokeapi.dev/joke/${data[i]}`)
+//         .then(res => res.json())
+//         .then(data => console.log(data))
+// }
+function showForm () {
+    submitForm().style = 'display: block'
 }
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    // homepage();
-    createJokeClickEvent();
-    homeLinkClickEvent();
-    randomJokeClickEvent();
-    fetchJokeCategories();
-})
