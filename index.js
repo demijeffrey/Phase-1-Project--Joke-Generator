@@ -112,6 +112,7 @@ function homepage (data) {
                             .then(res => res.json())
                             .then(joke => {
                                 console.log(joke)
+                                fetchFavoriteJokes()
                             })
                     })
 
@@ -174,6 +175,7 @@ function randomJokePage (joke, answer) {
             .then(res => res.json())
             .then(joke => {
                 console.log(joke)
+                fetchFavoriteJokes()
             })
     })
 

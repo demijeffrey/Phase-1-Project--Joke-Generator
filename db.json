@@ -19,6 +19,11 @@
       "joke": "What's the difference between a hippo and a zippo?",
       "answer": "One is really heavy and the other is a little lighter.",
       "id": 3
+    },
+    {
+      "joke": "What did one saggy boob say to the other?",
+      "answer": "\"Better get some support before people think we're nuts!\"",
+      "id": 4
     }
   ],
   "favorites": [
@@ -31,6 +36,26 @@
       "joke": "Whats the Grinchs least favorite band?",
       "answer": "The Who.",
       "id": 1
+    },
+    {
+      "joke": "The glass is neither half-full nor half-empty, the glass is twice as big as it needs to be.",
+      "answer": " ",
+      "id": 2
+    },
+    {
+      "joke": "Why did the ghost go to the bar?",
+      "answer": "To get sheet faced.",
+      "id": 3
+    },
+    {
+      "joke": "What is the least spoken language in the world?",
+      "answer": "Sign language.",
+      "id": 4
+    },
+    {
+      "joke": "Debugging: Removing the needles from the haystack.",
+      "answer": " ",
+      "id": 5
     }
   ]
 }
