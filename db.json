@@ -24,6 +24,26 @@
       "joke": "What did one saggy boob say to the other?",
       "answer": "\"Better get some support before people think we're nuts!\"",
       "id": 4
+    },
+    {
+      "joke": "What's green and has wheels?",
+      "answer": "Grass. I lied about the wheels.",
+      "id": 5
+    },
+    {
+      "joke": "What's green and has wheels?",
+      "answer": "Grass. I lied about the wheels.",
+      "id": 6
+    },
+    {
+      "joke": "What's green and has wheels?",
+      "answer": "Grass. I lied about the wheels.",
+      "id": 7
+    },
+    {
+      "joke": "What's green and has wheels?",
+      "answer": "Grass. I lied about the wheels.",
+      "id": 8
     }
   ],
   "favorites": [
@@ -56,6 +76,21 @@
       "joke": "Debugging: Removing the needles from the haystack.",
       "answer": " ",
       "id": 5
+    },
+    {
+      "joke": "Has COVID-19 forced you to wear glasses and a mask at the same time?",
+      "answer": "If so, you may be entitled to condensation.",
+      "id": 6
+    },
+    {
+      "joke": "What do elves post on Social Media?",
+      "answer": "Elf-ies!",
+      "id": 7
+    },
+    {
+      "joke": "What part of a vegetable are you not supposed to eat?",
+      "answer": "The wheelchair.",
+      "id": 8
     }
   ]
 }

@@ -18,6 +18,7 @@ const categoryJoke = () => document.getElementById('category-joke')
 const submitForm = () => document.getElementById('submit-form')
 const myJokesLink = () => document.getElementById('my-jokes-link')
 const favoritesLink = () => document.getElementById('favorite-jokes-link')
+const form = () => document.getElementById('form')
 
 
 //Event Listeners
@@ -91,6 +92,7 @@ function homepage (data) {
                     p.className = 'center-align white-text'
                     p.style = 'padding: 100px; margin-bottom: 10px'
                     p.innerText = joke.delivery || ' '
+                    
                     h6.appendChild(p)
 
                     const favBtn = document.createElement('button')
@@ -137,8 +139,9 @@ function createJokePage () {
     h3.style = 'margin-bottom: 100px'
     h3.innerText = 'Create A Joke'
     main().appendChild(h3)
-    
+
     document.getElementById('form').addEventListener('submit', () => fetchMyJokes())
+    form().reset()
 }
 
 function randomJokePage (joke, answer) {
@@ -267,22 +270,3 @@ function fetchFavoriteJokes () {
             favoritesPage(jokes)
         })
 }
-
-
-// function favoriteJoke (joke, answer) {
-//     fetch('http://localhost:3000/favorites', {
-//         method: 'POST',
-//         headers: {
-//             'Content-type': 'application/json',
-//             'Accept': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             joke: joke,
-//             answer: answer
-//         })
-//     })
-//     .then(res => res.json())
-//     .then(joke => {
-//         console.log(joke)
-//     })
-// }
