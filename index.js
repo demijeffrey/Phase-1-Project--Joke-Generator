@@ -10,54 +10,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //Nodes
-const main = () => document.getElementById('main')
-const createLink = () => document.getElementById('create-link')
-const homeLink = () => document.getElementById('home-link')
-const randomLink = () => document.getElementById('random-link')
-const categoryJoke = () => document.getElementById('category-joke')
-const submitForm = () => document.getElementById('submit-form')
-const myJokesLink = () => document.getElementById('my-jokes-link')
-const favoritesLink = () => document.getElementById('favorite-jokes-link')
-const form = () => document.getElementById('form')
+const main = document.getElementById('main')
+const createLink = document.getElementById('create-link')
+const homeLink = document.getElementById('home-link')
+const randomLink = document.getElementById('random-link')
+const categoryJoke = document.getElementById('category-joke')
+const submitForm = document.getElementById('submit-form')
+const myJokesLink = document.getElementById('my-jokes-link')
+const favoritesLink = document.getElementById('favorite-jokes-link')
+const form = document.getElementById('form')
 
 
 //Event Listeners
 function createJokeClickEvent () {
-    createLink().addEventListener('click', createJokePage)
+    createLink.addEventListener('click', createJokePage)
 }
 
 function homeLinkClickEvent () {
-    homeLink().addEventListener('click', fetchJokeCategories)
+    homeLink.addEventListener('click', fetchJokeCategories)
 }
 
 function randomJokeClickEvent () {
-    randomLink().addEventListener('click', fetchRandomJoke)
+    randomLink.addEventListener('click', fetchRandomJoke)
 }
 
 function myJokesClickEvent () {
-    myJokesLink().addEventListener('click', fetchMyJokes)
+    myJokesLink.addEventListener('click', fetchMyJokes)
 }
 
 function favoritesClickEvent () {
-    favoritesLink().addEventListener('click', fetchFavoriteJokes)
+    favoritesLink.addEventListener('click', fetchFavoriteJokes)
 }
 
 
 //Event Handlers
 function resetMain () {
-    main().innerText = ''
+    main.innerText = ''
 }
 
 function resetCategoryJoke () {
-    categoryJoke().innerText = ''
+    categoryJoke.innerText = ''
 }
 
 function showForm () {
-    submitForm().style = 'display: block'
+    submitForm.style = 'display: block'
 }
 
 function hideForm () {
-    submitForm().style = 'display: none'
+    submitForm.style = 'display: none'
 }
 
 
@@ -118,16 +118,16 @@ function homepage (data) {
                             })
                     })
 
-                    categoryJoke().appendChild(h6)
-                    categoryJoke().appendChild(favBtn)
+                    categoryJoke.appendChild(h6)
+                    categoryJoke.appendChild(favBtn)
                 })
         })
         btn.innerText = data[i]
         ul.appendChild(btn)
     }
-    main().appendChild(h2)
-    main().appendChild(h5)
-    main().appendChild(ul)
+    main.appendChild(h2)
+    main.appendChild(h5)
+    main.appendChild(ul)
 }
 
 function createJokePage () {
@@ -138,10 +138,10 @@ function createJokePage () {
     h3.className = 'center-align background-color: orange darken-2'
     h3.style = 'margin-bottom: 100px'
     h3.innerText = 'Create A Joke'
-    main().appendChild(h3)
+    main.appendChild(h3)
 
     document.getElementById('form').addEventListener('submit', () => fetchMyJokes())
-    form().reset()
+    form.reset()
 }
 
 function randomJokePage (joke, answer) {
@@ -182,10 +182,10 @@ function randomJokePage (joke, answer) {
             })
     })
 
-    main().appendChild(h3)
-    main().appendChild(h5)
-    main().appendChild(p)
-    main().appendChild(btn)
+    main.appendChild(h3)
+    main.appendChild(h5)
+    main.appendChild(p)
+    main.appendChild(btn)
 }
 
 function myJokesPage (jokes) {
@@ -196,7 +196,7 @@ function myJokesPage (jokes) {
     h3.className = 'center-align background-color: orange darken-2'
     h3.style = 'margin-bottom: 100px'
     h3.innerText = "Created Jokes"
-    main().appendChild(h3)
+    main.appendChild(h3)
 
     jokes.forEach(joke => {
         const li = document.createElement('li')
@@ -207,7 +207,7 @@ function myJokesPage (jokes) {
         p.innerText = joke.answer
         li.appendChild(p)
 
-        main().appendChild(li)
+        main.appendChild(li)
     })
 }
 
@@ -219,7 +219,7 @@ function favoritesPage (jokes) {
     h3.className = 'center-align background-color: orange darken-2'
     h3.style = 'margin-bottom: 100px'
     h3.innerText = "Favorite Jokes"
-    main().appendChild(h3)
+    main.appendChild(h3)
 
     jokes.forEach(joke => {
         const li = document.createElement('li')
@@ -230,7 +230,7 @@ function favoritesPage (jokes) {
         p.innerText = joke.answer || joke.delivery
         li.appendChild(p)
 
-        main().appendChild(li)
+        main.appendChild(li)
     })
 }
 
