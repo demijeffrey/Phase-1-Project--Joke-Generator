@@ -92,8 +92,6 @@ function homepage (data) {
                     p.className = 'center-align white-text'
                     p.style = 'padding: 100px; margin-bottom: 10px'
                     p.innerText = joke.delivery || ' '
-                    
-                    h6.appendChild(p)
 
                     const favBtn = document.createElement('button')
                     favBtn.className = 'waves-effect waves-light btn-small red lighten-1'
@@ -119,6 +117,7 @@ function homepage (data) {
                     })
 
                     categoryJoke.appendChild(h6)
+                    categoryJoke.appendChild(p)
                     categoryJoke.appendChild(favBtn)
                 })
         })
@@ -228,8 +227,8 @@ function favoritesPage (jokes) {
         p.style = 'margin-left: 75px'
         p.className = 'white-text'
         p.innerText = joke.answer || joke.delivery
-        li.appendChild(p)
 
+        li.appendChild(p)
         main.appendChild(li)
     })
 }

@@ -66,6 +66,11 @@
       "joke": "What part of a vegetable are you not supposed to eat?",
       "answer": "The wheelchair.",
       "id": 7
+    },
+    {
+      "joke": "Why was the mushroom always invited to parties?",
+      "answer": "Cause he's a fungi.",
+      "id": 8
     }
   ]
 }

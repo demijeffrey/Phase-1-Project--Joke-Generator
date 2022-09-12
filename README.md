@@ -2,6 +2,8 @@
 
 This joke randomizer uses an external API source to generate various jokes. This randomizer also lets you make a list of 'favorited' jokes as well as allows you to create and save your own jokes.
 
+*NOTE* Many of the jokes within this app are not appropriate for users under age 18. User discretion is advised.
+
 
 ### Requirements
 
