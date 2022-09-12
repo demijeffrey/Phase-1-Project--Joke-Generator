@@ -5,6 +5,14 @@ This joke randomizer uses an external API source to generate various jokes in va
 *NOTE* Many of the jokes within this app are not appropriate for users under age 18. User discretion is advised.
 
 
+### Built With
+
+This app was designed using:
+* JavaScript, HTML, CSS
+* MaterializeCSS
+* JSON-server
+
+
 ### Requirements
 
 * Have json-server installed
